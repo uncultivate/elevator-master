@@ -1,6 +1,6 @@
 # Elevator Simulation
 
-This project is forked from a project by <a href="https://github.com/mrbrianevans">mrbiranevans</a> and simulates the behavior of an elevator system in a building with multiple floors. The simulation includes two different algorithms for elevator movement and provides the option to visualize the elevator's operations.
+This project is forked from a project by <a href="https://github.com/mrbrianevans">mrbrianevans</a> and simulates the behavior of an elevator system in a building with multiple floors. The simulation includes two different algorithms for elevator movement and provides the option to visualize the elevator's operations.
 
 <img src="lift.jpg" alt="anime-lift" width="500"/>
 
