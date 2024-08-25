@@ -6,8 +6,7 @@ This project is forked from a project by <a href="https://github.com/mrbrianevan
 
 ## Features
 
-- **Random Data Generation:** Generates random timestamped data to simulate elevator usage over a period.
-- **Biased Floor Selection:** Allows for biased floor selection based on time of day, simulating typical elevator usage patterns.
+- **Random Data Generation:** Generates random timestamped data to simulate elevator usage over a period of time, simulating typical elevator usage patterns.
 - **Simulation Algorithms:**
   - **Baseline Algorithm:** Follows a simple up-and-down approach, reversing direction only at the top or bottom floors.
   - **Design your own:** Test functions before submitting to the Data Engineers' Coding Challenge!
