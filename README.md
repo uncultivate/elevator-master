@@ -39,18 +39,40 @@ cd elevator-master
 ## Usage
 
 ### Running the Simulation
-To run the simulation, use the single_simulation function found in the **`run lifts`** notebook:
+
+You can run the simulation in several ways, depending on your environment:
+
+#### Running locally in a Jupyter Notebook (can enable animation)
+To run the simulation locally in a Jupyter Notebook:
+
+1. Install Jupyter Notebook (if you haven't already):
+
+```bash
+pip install notebook
+```
+
+2. Open Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+3. Load the Notebook: Open the run_lifts_master.ipynb file in Jupyter Notebook.
+
+4. Run the Simulation: Follow the instructions provided in the notebook. You can adjust the parameters, run the simulation, and visualise the results directly within the notebook.
+
+#### Running in Google Colab (cannot enable animation)
+If you prefer to run the simulation in Google Colab:
+
+1. Open Google Colab:
+  - Go to <a href="https://colab.research.google.com">Google Colab</a> and upload the run_lifts.ipynb.
+2. Upload the other project files:
+  - Upload the elevator_simulation.py, charts.py, and create_entries.py files to your Colab runtime
+3. Run the Simulation:
+  - Run the cells in the notebook. Google Colab allows you to execute Python code, visualize results, and adjust parameters just like in a local Jupyter Notebook, but you will not be able to run the tkinter animations. 
 
 
-* algorithm: Test with the example "baseline" algorithm, then create your own function with elevator logic.
-* function_dict: Run the simulation for these functions.
-* data: Pass the entries data as a DataFrame.
-* floors: Number of floors in the building.
-* max_elevator_capacity: Maximum number of people the elevator can carry.
-* animate: Set to True to enable the animation.
-* animation_speed: Control the speed of the animation.
-
-## Viewing the Results
+### Viewing the Results
 The results, including total time elapsed, shortest wait time, longest wait time, and average wait time, can be created as a DataFrame. If the animation is enabled, these results will also appear in the GUI.
 
 <img src="elevator_video.gif" alt="screenshot" width="500"/>
