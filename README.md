@@ -42,7 +42,7 @@ cd elevator-master
 
 You can run the simulation in several ways, depending on your environment:
 
-#### Running locally in a Jupyter Notebook (can enable animation)
+#### Running locally in a Jupyter Notebook
 To run the simulation locally in a Jupyter Notebook:
 
 1. Install Jupyter Notebook (if you haven't already):
@@ -61,7 +61,7 @@ jupyter notebook
 
 4. Run the Simulation: Follow the instructions provided in the notebook. You can adjust the parameters, run the simulation, and visualise the results directly within the notebook.
 
-#### Running in Google Colab (cannot enable animation)
+#### Running in Google Colab
 If you prefer to run the simulation in Google Colab:
 
 1. Open Google Colab:
@@ -69,7 +69,7 @@ If you prefer to run the simulation in Google Colab:
 2. Upload the other project files:
   - Upload the elevator_simulation.py, charts.py, and create_entries.py files to your Colab runtime
 3. Run the Simulation:
-  - Run the cells in the notebook. Google Colab allows you to execute Python code, visualize results, and adjust parameters just like in a local Jupyter Notebook, but you will not be able to run the tkinter animations. 
+  - Run the cells in the notebook. Google Colab allows you to execute Python code, visualize results, and adjust parameters just like in a local Jupyter Notebook. The only drawback is that you will not be able to run the tkinter animations. 
 
 
 ### Viewing the Results
