@@ -39,7 +39,7 @@ cd elevator-master
 ## Usage
 
 ### Running the Simulation
-To run the simulation, use the single_simulation function:
+To run the simulation, use the single_simulation function found in the **`run lifts`** notebook:
 
 ```python
 single_simulation(algorithm="baseline", data=df, floors=10, max_elevator_capacity=6, animate=True, animation_speed=1)
