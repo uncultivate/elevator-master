@@ -52,4 +52,4 @@ To run the simulation, use the single_simulation function found in the **`run li
 
 ## Viewing the Results
 The results, including total time elapsed, shortest wait time, longest wait time, and average wait time, can be created as a DataFrame. If the animation is enabled, these results will also appear in the GUI.
-<img src="elevator_video.mp4" alt="screenshot" width="500"/>
+<img src="elevator_video.gif" alt="screenshot" width="500"/>
