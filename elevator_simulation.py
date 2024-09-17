@@ -69,7 +69,7 @@ def single_simulation(algorithm, function_dict, data, floors, max_elevator_capac
             for j in range(steps):
                 canvas.move(animation, x / steps, y / steps)
                 tk.update()
-                time.sleep(total_move_time / steps)
+                #time.sleep(total_move_time / steps)
 
         def exit_lift(animation, x, y):
             total_move_time = 0.15  # Total time to move the animation in seconds
@@ -77,32 +77,32 @@ def single_simulation(algorithm, function_dict, data, floors, max_elevator_capac
             for j in range(steps):
                 canvas.move(animation, x / steps, y / steps)
                 tk.update()
-                time.sleep(total_move_time / steps)
+                #time.sleep(total_move_time / steps)
 
         # Draw the background rectangle
-        canvas.create_rectangle(50, 300 + ((floors - 1) * floor_height), 650, 300 - floor_height, fill='lightgrey')  # Adjust the dimensions as needed
+        canvas.create_rectangle(50, 250 + ((floors - 1) * floor_height), 650, 250 - floor_height, fill='lightgrey')  # Adjust the dimensions as needed
 
         # Create building outline & lift
-        canvas.create_oval(85, 70, 95, 80, fill='black')
-        canvas.create_oval(85, 90, 95, 100, fill='white')
-        canvas.create_oval(85, 110, 95, 120, fill='green')
-        waiting_label = canvas.create_text(100, 75, text='Waiting', anchor='w')
-        inside_label = canvas.create_text(100, 95, text='Inside elevator', anchor='w')
-        delivered_label = canvas.create_text(100, 115, text='Arrived', anchor='w')
-        canvas.create_text(625, 275, text="UPLIFT", font=("Cambria", 24, "bold"), angle=270)
-        canvas.create_text(625, 425, text="CHALLENGE", font=("Cambria", 24), angle=270)
+        canvas.create_oval(85, 20, 95, 30, fill='black')
+        canvas.create_oval(85, 40, 95, 50, fill='white')
+        canvas.create_oval(85, 60, 95, 70, fill='green')
+        waiting_label = canvas.create_text(100, 25, text='Waiting', anchor='w')
+        inside_label = canvas.create_text(100, 45, text='Inside elevator', anchor='w')
+        delivered_label = canvas.create_text(100, 65, text='Arrived', anchor='w')
+        canvas.create_text(625, 225, text="UPLIFT", font=("Cambria", 24, "bold"), angle=270)
+        canvas.create_text(625, 375, text="CHALLENGE", font=("Cambria", 24), angle=270)
 
         
-        clock_label = canvas.create_text(100, 135, text='Time: ' + current_time.strftime('%H:%M:%S'), anchor='w')
+        clock_label = canvas.create_text(100, 85, text='Time: ' + current_time.strftime('%H:%M:%S'), anchor='w')
         for k in range(1, floors+2):
-            canvas.create_line(50, 300 + (floors - k) * floor_height, 600, 300 + (floors - k) * floor_height)
+            canvas.create_line(50, 250 + (floors - k) * floor_height, 600, 250 + (floors - k) * floor_height)
             if k > 1:
-                canvas.create_line(200, 300 + (floors - k) * floor_height, 200, 300 + floor_height + (floors - k) * floor_height)
-                canvas.create_line(400, 300 + (floors - k) * floor_height, 400, 300 + floor_height + (floors - k) * floor_height)
+                canvas.create_line(200, 250 + (floors - k) * floor_height, 200, 250 + floor_height + (floors - k) * floor_height)
+                canvas.create_line(400, 250 + (floors - k) * floor_height, 400, 250 + floor_height + (floors - k) * floor_height)
             if k <= floors:
-                canvas.create_text(5, 275 + (floors - k) * floor_height, text='Floor ' + str(k), anchor='w')
+                canvas.create_text(5, 225 + (floors - k) * floor_height, text='Floor ' + str(k), anchor='w')
         
-        elevator = canvas.create_rectangle(203, 300 + floor_height * (floors - 1 - elevator_floor), 397, 300 + floor_height * (floors - elevator_floor), fill='black')
+        elevator = canvas.create_rectangle(203, 250 + floor_height * (floors - 1 - elevator_floor), 397, 250 + floor_height * (floors - elevator_floor), fill='black')
         tk.update()
 
     while any(not person.finished for person in total_population) or current_time <= end_time:
@@ -123,7 +123,7 @@ def single_simulation(algorithm, function_dict, data, floors, max_elevator_capac
             
             if animate:
                 offset = floor_population[s_f] * 13
-                person.animation = canvas.create_oval(185 - offset, 290 + (floors - s_f) * floor_height, 195 - offset, 300 + (floors - s_f) * floor_height, fill='black')
+                person.animation = canvas.create_oval(185 - offset, 240 + (floors - s_f) * floor_height, 195 - offset, 250 + (floors - s_f) * floor_height, fill='black')
                 tk.update()
             
             floor_population[s_f] += 1
@@ -165,6 +165,12 @@ def single_simulation(algorithm, function_dict, data, floors, max_elevator_capac
 
         
         selected_function = function_dict.get(algorithm)
+        one_hour = timedelta(hours=1)
+        if current_time - end_time > one_hour:      
+
+            print(f'{algorithm} timed out!')
+            break
+        
         t_floor = process_logic(selected_function, current_time, elev_pop, floor_population, floors, elevator_floor, t_floor)
         if t_floor > elevator_floor: elevator_direction = 0.5
         elif t_floor < elevator_floor: elevator_direction = -0.5
@@ -230,10 +236,10 @@ def single_simulation(algorithm, function_dict, data, floors, max_elevator_capac
     minutes, seconds = divmod(remainder, 60)
     
     if animate and tk.winfo_exists():
-        canvas.create_text(200, 900, text=f"Total time elapsed: {hours} hours, {minutes} minutes, and {seconds} seconds", font=("Cambria", 12))
-        canvas.create_text(200, 915, text=f'Shortest wait time: {min(wait_times)}s', font=("Cambria", 12))
-        canvas.create_text(200, 930, text=f'Longest wait time: {max(wait_times)}s', font=("Cambria", 12))
-        canvas.create_text(200, 945, text="Average wait time: " + str(round(average_wait_time, 2)), font=("Cambria", 12))
+        canvas.create_text(200, 850, text=f"Total time elapsed: {hours} hours, {minutes} minutes, and {seconds} seconds", font=("Cambria", 12))
+        canvas.create_text(200, 865, text=f'Shortest wait time: {min(wait_times)}s', font=("Cambria", 12))
+        canvas.create_text(200, 880, text=f'Longest wait time: {max(wait_times)}s', font=("Cambria", 12))
+        canvas.create_text(200, 895, text="Average wait time: " + str(round(average_wait_time, 2)), font=("Cambria", 12))
         tk.mainloop()
         
     return wait_times

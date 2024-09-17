@@ -11,7 +11,6 @@ env/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-run_lifts_master.ipynb
 
 # Ignore system files
 .DS_Store

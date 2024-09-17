@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 def wait_times_histogram(wait_times):
     plt.style.use('fivethirtyeight')
@@ -55,3 +56,13 @@ def plot_mean_floor_by_half_hour(df):
     
     # Display the plot
     plt.show()
+
+# Function to award points based on inverse index
+def award_points(df):
+    # Sort by Average Wait in ascending order
+    df_sorted = df.sort_values(by='Average Wait').reset_index(drop=True)
+    # Award points based on the inverse of the index
+    df_sorted['Points'] = range(len(df_sorted)-1, -1, -1)
+    final_df = df_sorted[['Name', 'Points']].sort_values('Points', ascending=False)
+    final_df.index = final_df.index + 1
+    return final_df
